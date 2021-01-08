@@ -1,7 +1,7 @@
 {
   "name": "elm-tree-layout",
   "version": "1.0.0",
-  "license": "UNLICENSED",
+  "license": "BSD-3-Clause",
   "scripts": {
     "lint": "elm-format --validate .",
     "test": "elm-test"
