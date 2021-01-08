@@ -1,5 +1,5 @@
 {
-    "type": "application",
+    "type": "package",
     "name": "wasdacraic/elm-tree-layout",
     "summary": "Implements Buchheim, Junger and Leipert's tree layout algorithm",
     "version": "1.0.0",
