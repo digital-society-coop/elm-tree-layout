@@ -3,12 +3,9 @@
     "name": "wasdacraic/elm-tree-layout",
     "summary": "Implements Buchheim, Junger and Leipert's tree layout algorithm",
     "license": "BSD-3-Clause",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "exposed-modules": [
         "TreeLayout"
-    ],
-    "source-directories": [
-        "src"
     ],
     "elm-version": "0.19.0 <= v < 0.20.0",
     "dependencies": {

@@ -4,6 +4,7 @@ module TreeLayout exposing (treeLayout)
 defined by [(Walker, 1989)](http://www.cs.unc.edu/techreports/89-034.pdf). This implementation
 is based on the pseudo-code given in the improved algorithm that runs in linear time by
 [(Buchheim, Junger and Leipert, 2006)](http://dirk.jivas.de/papers/buchheim02improving.pdf).
+
 While providing the coordinates, this module does not render the tree to keep it generic.
 
 @docs treeLayout
@@ -119,23 +120,14 @@ type alias Contour comparable =
 
 
 {-| Return a dictionary of x and y coordinates keyed by a unique identifier for a node for a
-given 'distance' (used as a constant for x spacing) and 'nodes' (list of hierarchy descriptors,
-which are tuples of node identifier and parent node identifier, starting with the root).
+given 'distance' (used as a constant for x spacing) and 'nodes' (a list of hierarchy descriptors
+starting with the root, represented by tuples of node identifier and parent node identifier).
 
-    [ ( "a", Nothing )
-    , ( "b", Just "a" )
-    , ( "c", Just "a" )
-    ]
-        |> treeLayout 2
-    --> (Dict.fromList
-            [ ( "a", { x = 0, y = 1 } )
-            , ( "b", { x = -1, y = 2 } )
-            , ( "c", { x = 1, y = 2 } )
-            ]
-        )
+    treeLayout 2 [ ( "a", Nothing ), ( "b", Just "a" ), ( "c", Just "a" ) ]
+    --> (Dict.fromList [ ( "a", { x = 0, y = 1 } ), ( "b", { x = -1, y = 2 } ), ( "c", { x = 1, y = 2 } ) ])
 
-**Note:** The x coordinates will have negative values as the root node will always be at 0
-and y coordinates only coincide with integers of the levels from 1 to max depth of the tree.
+**Note:** The x coordinates will have negative values, as the root node will always be at 0.
+The y coordinates will be integers from 1 to the max depth of the tree.
 
 -}
 treeLayout : Float -> List ( comparable, Maybe comparable ) -> Dict comparable Coordinate
